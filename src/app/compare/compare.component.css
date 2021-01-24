@@ -1,0 +1,42 @@
+.container-fluid{
+  padding-top: 100px;
+}
+
+.result{
+  padding-top: 100px;
+}
+.card-body{
+  padding: 15px 10px;
+}
+.result__item{
+  padding: 10px;
+}
+.card-title{
+  font-size: 15px;
+}
+
+.card-image{
+  height: 330px;
+}
+
+.buttons-container{
+  display: flex;
+  justify-content: space-between
+}
+.content{
+  text-align: center;
+}
+
+.nick-box{
+  padding-left: 20px;
+}
+
+.userName{
+display: flex;
+justify-content: space-between;
+}
+
+.userName i{
+  padding-right: 50px;
+  cursor:pointer;
+}

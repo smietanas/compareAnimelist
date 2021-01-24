@@ -1,0 +1,70 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="nick-box col-2">
+      <input type="text" class="form-control" [(ngModel)]='newUserName' placeholder="Add new user">
+      <button class="btn btn-outline-dark mt-2" (click)='addNewUser()'>Dodaj usera</button>
+      <hr>
+      <p>krzysiek_sz5</p>
+      <hr>
+      <div *ngFor='let i of users | async'>
+        <div class="userName">
+          <p class="">{{i.name}}</p> <i class="fa fa-trash fa-2x" (click)='deleteUser(i._id)'></i>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-6">
+      <form action="" #f='ngForm' (ngSubmit)='onSubmit(f.value)'>
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              Podaj 1 nick z animelist <i class="fab fa-accessible-icon"></i>
+              <input class="form-control" name='firstUser' type="text" ngModel>
+              <div class="search-btn">
+                <button class="btn btn-outline-dark">Porównaj</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              Podaj 2 nick z animelist
+              <input class="form-control" name='secondUser' type="text" ngModel>
+            </div>
+          </div>
+        </div>
+      </form>
+
+    </div>
+    <div class="col-4">
+
+    </div>
+
+    <div class="container">
+      <div class="result">
+        <div class="row">
+          <div class="col-3" *ngFor="let l of lista">
+            <div class="result__item">
+              <div class="card">
+                <img src="{{l.image_url}}" class="card-img-top card-image" alt="...">
+                <div class="card-body">
+                  <div class="content">
+                    <h5 class="card-title">{{l.title}}</h5>
+                    <p>Odcinków: {{l.total_episodes}}</p>
+                    <p>Od: {{l.start_date | date:'mediumDate'}}</p>
+                    <p>Do: {{l.end_date | date:'mediumDate'}}</p>
+                  </div>
+
+                  <div class="buttons-container">
+                    <button class='btn btn-outline-dark' (click)='redirect(l.url)'>Szczegóły</button>
+                    <button class='btn btn-outline-dark' (click)='redirect(l.video_url)'>Video</button>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
